@@ -6,12 +6,14 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .avatar {
   border-radius: 50px;
   width: 30px;
   height: 30px;
   object-fit: cover;
 }
+
 .user-info {
   display: flex;
   align-items: center;
@@ -19,30 +21,36 @@
   margin-bottom: 10px;
   margin-left: 10px;
 }
+
 .username {
   font-size: 14px;
   color: gray;
 }
+
 .product-card-img {
   width: 220px;
   height: 300px;
 }
+
 .product-card-img img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
+
 .product-card-detail {
   margin-left: 10px;
   display: flex;
   flex-direction: column;
 }
+
 .size,
 .brand {
   color: gray;
   font-size: 12px;
 }
+
 .price {
   font-size: 15px;
   font-weight: 700;
