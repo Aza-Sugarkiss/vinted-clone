@@ -2,7 +2,6 @@ import "./offer.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
 
 const Offer = () => {
   const { id } = useParams();
@@ -26,7 +25,6 @@ const Offer = () => {
     <div>En cours de chargement...</div>
   ) : (
     <div className="offer-page">
-      <Header />
       <div className="product-container">
         <div className="product-img">
           <img src={data.product_pictures[0].secure_url} alt="product" />

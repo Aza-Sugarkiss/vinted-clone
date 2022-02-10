@@ -1,7 +1,6 @@
 import "./home.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 import OfferCard from "../components/OfferCard";
 
@@ -27,7 +26,6 @@ const Home = () => {
     <span>En cours de chargement...</span>
   ) : (
     <div>
-      <Header />
       <Hero />
       <div className="offers">
         {data.offers.map((offer, index) => {
