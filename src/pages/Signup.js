@@ -75,7 +75,7 @@ const Signup = () => {
             avoir au moins 18 ans.
           </p>
         </div>
-        <button className="submit-button" type="submit">
+        <button className="submitnoms -button" type="submit">
           S'inscrire
         </button>
       </form>
