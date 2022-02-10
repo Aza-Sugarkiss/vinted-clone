@@ -1,9 +1,9 @@
 .offer {
-  margin-top: 20px;
+  margin: 10px;
   text-decoration: none;
 }
 .avatar {
-  border-radius: 90px;
+  border-radius: 50px;
   width: 30px;
   height: 30px;
   object-fit: cover;
@@ -13,6 +13,10 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+}
+.username {
+  font-size: 14px;
+  color: #a5a5a5;
 }
 .product-img {
   width: 220px;

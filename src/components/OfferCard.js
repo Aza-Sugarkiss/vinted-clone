@@ -12,7 +12,7 @@ const OfferCard = ({ offer }) => {
     <div className="offer">
       <div className="user-info">
         <img className="avatar" src={owner.avatar.secure_url} alt="avatar" />
-        <span>{owner.username}</span>
+        <span className="username">{owner.username}</span>
       </div>
       <div className="product">
         <div className="product-img">
