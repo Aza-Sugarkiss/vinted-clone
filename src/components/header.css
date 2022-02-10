@@ -1,7 +1,46 @@
 .header {
-  padding: 0 50px;
-  height: 52px;
+  padding: 5px 80px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.search {
+  width: 55%;
+  height: 40px;
+}
+
+.search-box {
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  color: #b3b3b3;
+  padding-left: 10px;
+}
+
+.white-button {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.white-button button {
+  width: 100px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid #09b1ba;
+  border-radius: 4px;
+  color: #09b1ba;
+}
+
+.cyan-button {
+  width: 150px;
+  height: 30px;
+  background-color: #09b1ba;
+  border: 1px solid #09b1ba;
+  border-radius: 4px;
+  color: white;
 }

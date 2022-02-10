@@ -7,6 +7,7 @@ const Header = () => {
       <img src={Logo} alt="logo" />
       <form className="search" action="/Search">
         <input
+          className="search-box"
           type="search"
           role="searchbox"
           defaultValue="Recherche des articles"

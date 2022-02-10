@@ -1,10 +1,9 @@
 import "./home.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import HomeContent from "../components/HomeContent";
+import OfferCard from "../components/OfferCard";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -30,9 +29,11 @@ const Home = () => {
     <div>
       <Header />
       <Hero />
-      <HomeContent data={data}>
-        <Link to={`Offer/${data}`}></Link>
-      </HomeContent>
+      <div className="offers">
+        {data.offers.map((offer, index) => {
+          return <OfferCard key={data.offers[index]._id} offer={offer} />;
+        })}
+      </div>
     </div>
   );
 };
