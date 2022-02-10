@@ -9,8 +9,18 @@ const Header = () => {
         <input
           className="search-box"
           type="search"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          required=""
+          name="q"
+          title="Rechercher"
           role="searchbox"
-          defaultValue="Recherche des articles"
+          aria-label="Rechercher dans le contenu du site"
+          aria-controls="typeahead_results"
+          aria-autocomplete="list"
+          placeholder="Recherche des articles"
         />
       </form>
       <div className="white-button">

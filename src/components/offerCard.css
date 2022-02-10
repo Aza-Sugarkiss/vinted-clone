@@ -1,6 +1,10 @@
-.offer {
+.offer-card {
   margin: 10px;
+  padding-bottom: 20px;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .avatar {
   border-radius: 50px;
@@ -13,21 +17,23 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+  margin-left: 10px;
 }
 .username {
   font-size: 14px;
-  color: #a5a5a5;
+  color: gray;
 }
-.product-img {
+.product-card-img {
   width: 220px;
-  height: 330px;
+  height: 300px;
 }
-.product-img img {
+.product-card-img img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 4px;
 }
-.product-detail {
+.product-card-detail {
   margin-left: 10px;
   display: flex;
   flex-direction: column;
@@ -39,4 +45,5 @@
 }
 .price {
   font-size: 15px;
+  font-weight: 700;
 }

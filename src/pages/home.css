@@ -1,6 +1,8 @@
 .offers {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 80px;
-  margin-right: 80px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 150px;
+  margin-right: 150px;
 }

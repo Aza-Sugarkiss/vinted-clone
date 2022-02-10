@@ -9,18 +9,18 @@ const OfferCard = ({ offer }) => {
   const brand = offer.product_details[0].MARQUE;
   const id = offer._id;
   return (
-    <div className="offer">
+    <div className="offer-card">
       <div className="user-info">
         <img className="avatar" src={owner.avatar.secure_url} alt="avatar" />
         <span className="username">{owner.username}</span>
       </div>
-      <div className="product">
-        <div className="product-img">
+      <div className="product-card">
+        <div className="product-card-img">
           <Link to={`./offer/${id}`}>
             <img src={offer.product_pictures[0].secure_url} alt="product" />
           </Link>
         </div>
-        <div className="product-detail">
+        <div className="product-card-detail">
           <span className="price">{price}</span>
           {sizeExist === "TAILLE" && <span className="size">{size}</span>}
           <span className="brand">{brand}</span>
