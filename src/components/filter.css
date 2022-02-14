@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+}
+
+.sort-checkbox {
+  margin-right: 40px;
+}
+
+.checkbox {
+  position: relative;
+}
+
+.wrapper {
+  position: absolute;
+  top: 65px;
+  left: 342px;
+}

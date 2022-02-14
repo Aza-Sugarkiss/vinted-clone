@@ -1,5 +1,6 @@
 import "./header.css";
 import Logo from "../assets/img/vinted-logo.svg";
+import Filter from "./Filter";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
@@ -32,6 +33,7 @@ const Header = () => {
           aria-autocomplete="list"
           placeholder="Recherche des articles"
         />
+        <Filter />
       </form>
       <div className="navigateButtons">
         {Cookies.get("token") ? (
@@ -49,7 +51,9 @@ const Header = () => {
           </div>
         )}
       </div>
-      <button className="cyan-button">Vends tes articles</button>
+      <Link to="/publish">
+        <button className="cyan-button">Vends tes articles</button>
+      </Link>
     </div>
   );
 };
