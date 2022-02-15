@@ -69,7 +69,7 @@ const Publish = ({ token }) => {
           <input
             style={{ display: "none" }}
             id="file"
-            multiple={true}
+            // multiple={true}
             type="file"
             onChange={(event) => {
               setPicture(event.target.files[0]);

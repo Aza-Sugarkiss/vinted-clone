@@ -8,21 +8,28 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const [completed, setCompleted] = useState(false);
+  const data = useState();
 
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
+
+      const userId = data.user_id;
       const cardElement = elements.getElement(CardElement);
       const stripeResponse = await stripe.createToken(cardElement, {
         name: userId,
       });
       console.log(stripeResponse);
+
+      const stripeToken = stripeResponse.token.id;
+      const title = data.product_name;
+      const price = data.product_price;
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
         {
-          token: stripeResponse.token.id,
-          title: product,
-          amount: amount,
+          token: stripeToken,
+          title: title,
+          amount: price,
         }
       );
       console.log(response.data);
