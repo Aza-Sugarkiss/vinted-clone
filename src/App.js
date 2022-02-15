@@ -1,21 +1,27 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./components/CheckoutForm";
+
 import Cookies from "js-cookie";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Header from "./components/Header";
-import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
+
+const stripePromise = loadStripe("pk_test_votreCléPublique");
 
 function App() {
-  const [token, setToken] = useState(Cookies.get("userToken") || null);
+  const [token, setToken] = useState(Cookies.get("token") || null);
   const setUser = (token) => {
     if (token) {
-      Cookies.set("userToken", token, { expires: 1 });
+      Cookies.set("token", token, { expires: 1 });
     } else {
-      Cookies.remove("userToken");
+      Cookies.remove("token");
     }
     setToken(token);
   };
@@ -27,8 +33,11 @@ function App() {
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/publish" element={<Publish token={token} />} />
+        <Route path="/payment" element={<Payment token={token} />} />
       </Routes>
+      <Elements stripe={stripePromise}>
+        <CheckoutForm />
+      </Elements>
     </Router>
   );
 }

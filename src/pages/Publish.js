@@ -15,6 +15,7 @@ const Publish = ({ token }) => {
   const [price, setPrice] = useState("");
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [preview, setPreview] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ const Publish = ({ token }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <div style={{ height: 45, width: 180, border: "1px solid blue" }}>
+          <div style={{ height: 45, width: 180, border: "1px solid black" }}>
             <label htmlFor="file">
               <span>+</span> <span>Ajouter une photo</span>
             </label>
@@ -70,9 +71,13 @@ const Publish = ({ token }) => {
             id="file"
             multiple={true}
             type="file"
-            onChange={(event) => setPicture(event.target.files[0])}
+            onChange={(event) => {
+              setPicture(event.target.files[0]);
+              setPreview(URL.createObjectURL(event.target.files[0]));
+            }}
           />
         </div>
+        {preview && <img src={preview} alt="" style={{ width: 200 }} />}
         <br />
         <div className="upload-01">
           <div>

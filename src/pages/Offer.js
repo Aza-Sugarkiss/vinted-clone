@@ -2,6 +2,7 @@ import "./offer.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Offer = () => {
   const { id } = useParams();
@@ -27,7 +28,7 @@ const Offer = () => {
     <div className="offer-page">
       <div className="product-container">
         <div className="product-img">
-          <img src={data.product_pictures[0].secure_url} alt="product" />
+          <img src={data.product_pictures[0]?.secure_url} alt="product" />
         </div>
         <div className="product-detail">
           <span className="price">
@@ -52,11 +53,16 @@ const Offer = () => {
               {data.product_description}
             </span>
             <div className="owner-info">
-              <img src={data.owner.account.avatar.secure_url} alt="owner" />
+              <img src={data.owner.account.avatar?.secure_url} alt="owner" />
               <span>{data.owner.account.username}</span>
             </div>
           </div>
-          <button className="buy">Acheter</button>
+          <Link
+            to="/payment"
+            state={{ title: data.product_name, price: data.product_price }}
+          >
+            <button className="buy">Acheter</button>
+          </Link>
         </div>
       </div>
     </div>
