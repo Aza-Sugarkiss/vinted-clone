@@ -1,5 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Cookies from "js-cookie";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
@@ -8,15 +10,24 @@ import Header from "./components/Header";
 import Publish from "./pages/Publish";
 
 function App() {
+  const [token, setToken] = useState(Cookies.get("userToken") || null);
+  const setUser = (token) => {
+    if (token) {
+      Cookies.set("userToken", token, { expires: 1 });
+    } else {
+      Cookies.remove("userToken");
+    }
+    setToken(token);
+  };
   return (
     <Router>
-      <Header />
+      <Header setUser={setUser} token={token} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/offer/:id" element={<Offer />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/publish" element={<Publish />} />
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/publish" element={<Publish token={token} />} />
       </Routes>
     </Router>
   );

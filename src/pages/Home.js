@@ -7,11 +7,14 @@ import OfferCard from "../components/OfferCard";
 const Home = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const limit = 20;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?limit=${limit}&page=${page}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -20,7 +23,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [page]);
 
   return isLoading ? (
     <span>En cours de chargement...</span>
@@ -32,6 +35,8 @@ const Home = () => {
           return <OfferCard key={data.offers[index]._id} offer={offer} />;
         })}
       </div>
+      <button onClick={() => setPage(page - 1)}>Page précédente</button>
+      <button onClick={() => setPage(page + 1)}>Page suivante</button>
     </div>
   );
 };

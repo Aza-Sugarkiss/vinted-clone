@@ -10,8 +10,9 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const signedUp = async (event) => {
+  const handleSubmit = async (event) => {
     try {
       event.preventDefault();
       const response = await axios.post(
@@ -29,12 +30,15 @@ const Signup = () => {
       navigate("/");
     } catch (error) {
       console.log(error.response);
+      if (error.response.status === 409) {
+        setErrorMessage("Un compte existe déjà avec cet email");
+      }
     }
   };
   return (
     <div className="signup-form section">
       <h1>S'inscrire</h1>
-      <form className="form-signup" onSubmit={signedUp}>
+      <form className="form-signup" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Nom d'utilisateur"
@@ -63,8 +67,8 @@ const Signup = () => {
           <div className="checkbox">
             <input
               type="checkbox"
-              onChange={() => {
-                setNewsletter(true);
+              onChange={(event) => {
+                setNewsletter(event.target.checked);
               }}
             />
             <span>S'inscrire à notre newsletter</span>
@@ -78,6 +82,7 @@ const Signup = () => {
         <button className="submitnoms -button" type="submit">
           S'inscrire
         </button>
+        <span>{errorMessage}</span>
       </form>
       <Link to="/login" className="login-link">
         Tu as déjà un compte ? Connecte-toi !

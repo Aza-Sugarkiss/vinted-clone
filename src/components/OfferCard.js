@@ -11,13 +11,13 @@ const OfferCard = ({ offer }) => {
   return (
     <div className="offer-card">
       <div className="user-info">
-        <img className="avatar" src={owner.avatar.secure_url} alt="avatar" />
+        <img className="avatar" src={owner.avatar?.secure_url} alt="avatar" />
         <span className="username">{owner.username}</span>
       </div>
       <div className="product-card">
         <div className="product-card-img">
           <Link to={`./offer/${id}`}>
-            <img src={offer.product_pictures[0].secure_url} alt="product" />
+            <img src={offer.product_pictures[0]?.secure_url} alt="product" />
           </Link>
         </div>
         <div className="product-card-detail">
